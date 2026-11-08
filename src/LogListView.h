@@ -1,4 +1,7 @@
 /*
+ * Copyright 2025-2026, Dru Satori @ Druware Software Designs.
+ * All rights reserved. Distributed under the terms of the MIT License.
+ *
  * Logger
  * The list of log lines, which can be dragged off as a replicant.
  */

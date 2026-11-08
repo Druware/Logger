@@ -72,4 +72,5 @@ end
 
 group Resources
 	file Logger.rdef
+	file Makefile
 end

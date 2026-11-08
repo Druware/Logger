@@ -1,4 +1,7 @@
 /*
+ * Copyright 2025-2026, Dru Satori @ Druware Software Designs.
+ * All rights reserved. Distributed under the terms of the MIT License.
+ *
  * Logger
  * The application: opens a window for each log file.
  */
@@ -7,6 +10,7 @@
 
 
 #include <Application.h>
+#include <InterfaceDefs.h>
 
 
 class BFilePanel;
@@ -15,6 +19,10 @@ struct entry_ref;
 
 // Also names the add-on that replicants of the log list are loaded from.
 const char* const kSignature = "application/x-vnd.Logger";
+
+const char* const kCopyright = "Copyright " B_UTF8_COPYRIGHT " 2025-2026 "
+	"Dru Satori @ Druware Software Designs";
+const char* const kLicenseName = "MIT License";
 
 const uint32 kMsgShowOpenPanel = 'opnp';
 const uint32 kMsgOpenSystemLog = 'osys';

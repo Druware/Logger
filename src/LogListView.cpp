@@ -1,4 +1,7 @@
 /*
+ * Copyright 2025-2026, Dru Satori @ Druware Software Designs.
+ * All rights reserved. Distributed under the terms of the MIT License.
+ *
  * Logger
  * The list of log lines, which can be dragged off as a replicant.
  */
@@ -154,8 +157,9 @@ LogListView::MessageReceived(BMessage* message)
 		case B_ABOUT_REQUESTED:
 		{
 			BString text;
-			text.SetToFormat("Logger\n\nShows and follows %s.",
-				fPath.String());
+			text.SetToFormat("Logger\n\nShows and follows %s.\n\n%s\n"
+				"Distributed under the terms of the %s.", fPath.String(),
+				kCopyright, kLicenseName);
 			BAlert* alert = new BAlert("About", text.String(), "OK");
 			alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 			alert->Go(NULL);

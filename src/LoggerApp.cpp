@@ -1,4 +1,7 @@
 /*
+ * Copyright 2025-2026, Dru Satori @ Druware Software Designs.
+ * All rights reserved. Distributed under the terms of the MIT License.
+ *
  * Logger
  * The application: opens a window for each log file.
  */
@@ -7,6 +10,7 @@
 #include "LoggerApp.h"
 
 #include <Alert.h>
+#include <private/interface/AboutWindow.h>
 #include <Entry.h>
 #include <File.h>
 #include <FilePanel.h>
@@ -16,6 +20,25 @@
 #include <string.h>
 
 #include "LogWindow.h"
+
+
+static const char* kLicenseText =
+	"Permission is hereby granted, free of charge, to any person obtaining "
+	"a copy of this software and associated documentation files (the "
+	"\"Software\"), to deal in the Software without restriction, including "
+	"without limitation the rights to use, copy, modify, merge, publish, "
+	"distribute, sublicense, and/or sell copies of the Software, and to "
+	"permit persons to whom the Software is furnished to do so, subject to "
+	"the following conditions:\n\n"
+	"The above copyright notice and this permission notice shall be "
+	"included in all copies or substantial portions of the Software.\n\n"
+	"THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, "
+	"EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF "
+	"MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. "
+	"IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY "
+	"CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, "
+	"TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE "
+	"SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.";
 
 
 static void
@@ -122,12 +145,15 @@ LoggerApp::MessageReceived(BMessage* message)
 void
 LoggerApp::AboutRequested()
 {
-	BAlert* alert = new BAlert("About Logger",
-		"Logger\n\n"
-		"Views and follows the system log and other log files, "
-		"and filters them by any column.", "OK");
-	alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
-	alert->Go(NULL);
+	BAboutWindow* window = new BAboutWindow("Logger", kSignature);
+	window->AddDescription("Views and follows the system log and other log "
+		"files, and filters them by any column.");
+	window->AddText(kCopyright);
+
+	BString license(kLicenseName);
+	license << "\n\n" << kCopyright << "\n\n" << kLicenseText;
+	window->AddExtraInfo(license.String());
+	window->Show();
 }
 
 

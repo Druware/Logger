@@ -1,4 +1,7 @@
 /*
+ * Copyright 2025-2026, Dru Satori @ Druware Software Designs.
+ * All rights reserved. Distributed under the terms of the MIT License.
+ *
  * Logger
  * Created by HiLo Developer Studio.
  */
@@ -14,7 +17,8 @@ resource app_version {
 	internal = 0,
 
 	short_info = "Logger",
-	long_info = "Logger views, follows and filters syslog and other log files."
+	long_info = "Logger ©2025-2026 Dru Satori @ Druware Software Designs. "
+		"MIT License."
 };
 
 resource app_flags B_SINGLE_LAUNCH;
