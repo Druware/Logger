@@ -1,0 +1,75 @@
+# HiLo project file
+project Logger
+format 2
+
+configuration Debug
+	setting OPTIMIZE 0
+	setting DEBUG 1
+end
+
+configuration Release
+	setting OPTIMIZE 2
+	setting DEBUG 0
+end
+
+target Logger
+	type application
+	signature application/x-vnd.Logger
+	source src/main.cpp
+	source src/LogRecord.cpp
+	source src/LogParser.cpp
+	source src/LogTailer.cpp
+	source src/LogFilter.cpp
+	source src/LogColumns.cpp
+	source src/FilterView.cpp
+	source src/LoggerApp.cpp
+	source src/LogWindow.cpp
+	source src/LogListView.cpp
+	header src/LogRecord.h
+	header src/LogParser.h
+	header src/LogTailer.h
+	header src/LogFilter.h
+	header src/LogColumns.h
+	header src/FilterView.h
+	header src/LoggerApp.h
+	header src/LogWindow.h
+	header src/LogListView.h
+	resource Logger.rdef
+	library be
+	library tracker
+	library columnlistview
+	include src
+	setting CXXFLAGS -Wall
+end
+
+scheme Logger
+	target Logger
+	configuration Debug
+	run-configuration Release
+end
+
+group Sources
+	file src/main.cpp
+	file src/LogRecord.h
+	file src/LogRecord.cpp
+	file src/LogParser.h
+	file src/LogParser.cpp
+	file src/LogTailer.h
+	file src/LogTailer.cpp
+	file src/LogFilter.h
+	file src/LogFilter.cpp
+	file src/LogColumns.h
+	file src/LogColumns.cpp
+	file src/FilterView.h
+	file src/FilterView.cpp
+	file src/LoggerApp.h
+	file src/LoggerApp.cpp
+	file src/LogWindow.h
+	file src/LogWindow.cpp
+	file src/LogListView.h
+	file src/LogListView.cpp
+end
+
+group Resources
+	file Logger.rdef
+end
