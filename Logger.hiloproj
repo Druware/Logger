@@ -73,4 +73,5 @@ end
 group Resources
 	file Logger.rdef
 	file Makefile
+	file tools/script/build-hpkg.sh
 end
